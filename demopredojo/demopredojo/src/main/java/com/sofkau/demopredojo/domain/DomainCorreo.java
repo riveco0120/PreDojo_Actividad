@@ -60,6 +60,12 @@ public class DomainCorreo {
     }
 
     public void filtrarPorDomain(String dominio) {
+               Flux.fromIterable(correoList)
+                .filter(item -> item.getDominio().contains(dominio)).subscribe(p -> log.info(p.toString()));
+
+
+    }
+    public void cantidaPorDomain(String dominio) {
         Disposable cantidad = Flux.fromIterable(correoList)
                 .filter(item -> item.getDominio().contains(dominio)).count().subscribe(p -> log.info(p.toString()));
 
