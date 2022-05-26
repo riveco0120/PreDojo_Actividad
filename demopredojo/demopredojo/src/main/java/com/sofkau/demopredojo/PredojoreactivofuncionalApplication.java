@@ -25,7 +25,7 @@ public class PredojoreactivofuncionalApplication implements CommandLineRunner {
 		//domainCorreo.filtrarCorreos();
 		//domainCorreo.filtrarPorDomain("hotmail");
 		//domainCorreo.cantidadCorreo();
-		domainCorreo.filtrarPorDomain("hotmail");
+		//domainCorreo.filtrarPorDomain("hotmail");
 		}
 	}
 
