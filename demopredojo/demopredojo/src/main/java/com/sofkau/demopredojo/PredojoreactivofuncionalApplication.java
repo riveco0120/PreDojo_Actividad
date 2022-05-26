@@ -22,7 +22,8 @@ public class PredojoreactivofuncionalApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		DomainCorreo domainCorreo = new DomainCorreo();
-		domainCorreo.filtrarCorreos();
+		//domainCorreo.filtrarCorreos();
 		//domainCorreo.filtrarPorDomain("hotmail");
+		domainCorreo.cantidadCorreo();
 	}
 }
