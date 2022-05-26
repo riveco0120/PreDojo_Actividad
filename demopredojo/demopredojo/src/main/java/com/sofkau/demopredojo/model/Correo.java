@@ -1,6 +1,7 @@
 package com.sofkau.demopredojo.model;
 
 
+import ch.qos.logback.core.CoreConstants;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,21 +9,28 @@ import lombok.Setter;
 @Setter
 public class Correo {
 
-    private Integer idCorreo;
-
     private  String correo;
 
-    private Boolean enviado = false;
+    private Boolean enviado;
 
     private String dominio;
 
-    public Correo() {
-    }
 
-    public Correo(Integer idCorreo, String correo, Boolean enviado, String dominio) {
-        this.idCorreo = idCorreo;
+    public Correo(String correo){
+        this.correo =correo;
+    }
+    public Correo(String correo, Boolean enviado, String dominio) {
         this.enviado = enviado;
         this.dominio = dominio;
         this.correo =correo;
+    }
+
+    @Override
+    public String toString() {
+        return "Correo{" +
+                ", correo='" + correo + '\'' +
+                ", enviado=" + enviado +
+                ", dominio='" + dominio + '\'' +
+                '}';
     }
 }
