@@ -73,6 +73,11 @@ public class DomainCorreo {
 
     }
 
+   public void cambiarEstado(Boolean estado){
+        Flux.fromIterable(correoList)
+                .map(item ->{item.setEnviado(estado); return item;}).subscribe(p->log.info(p.toString()));
+   }
+
     public void cantidadCorreo(){
         Disposable cantidad = Flux.fromIterable(correoList).count().subscribe(p -> log.info(p.toString()));
 
