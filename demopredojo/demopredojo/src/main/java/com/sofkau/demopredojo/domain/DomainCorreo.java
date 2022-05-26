@@ -32,7 +32,7 @@ public class DomainCorreo {
         listaCorreo.add(new Correo(19,"hvargas@unab.cl",false,"unab"));
         listaCorreo.add(new Correo(20,"carlos_verdugo@yahoo.es",false,"yahoo"));
         listaCorreo.add(new Correo(21,"alejandrayanezpezoa@gmail.com",false,"gmail"));
-        listaCorreo.add(new Correo(22,"iabarcae@yahoo.es",false,"yahoo"));
+        listaCorreo.add(new Correo(22,"rmerino@amqualitas.cl",false,"amqualitas"));
         listaCorreo.add(new Correo(23,"maeillanes@hotmail.com",false,"hotmail"));
         listaCorreo.add(new Correo(24,"osabarca@hotmail.com",false,"hotmail"));
         listaCorreo.add(new Correo(25,"cabrigo@garmendia.cl",false,"garmendia"));
@@ -45,5 +45,11 @@ public class DomainCorreo {
 
 
         return listaCorreo;
+    }
+
+    Flux<Correo> correoList = Flux.fromIterable(listaCorreo);
+    public void filtrarCorreos(){
+        List<Correo> listaFiltrada = new ArrayList<>();
+        Flux.listaFiltrada = Flux.just(correoList).distinct();
     }
 }
