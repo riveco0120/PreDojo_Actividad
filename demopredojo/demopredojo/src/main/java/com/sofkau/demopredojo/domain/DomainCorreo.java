@@ -3,8 +3,7 @@ package com.sofkau.demopredojo.domain;
 import com.sofkau.demopredojo.model.Correo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
@@ -56,15 +55,19 @@ public class DomainCorreo {
 
 
     public void filtrarCorreos() {
-        Flux.fromIterable(this.listCorreos()).distinct().subscribe(p -> log.info(p.toString()));
+        Flux.fromIterable(correoList).map(item->item.getCorreo()).distinct().subscribe(p -> log.info(p.toString()));
 
     }
 
     public void filtrarPorDomain(String dominio){
-        Flux.fromIterable(this.listCorreos())
-                .filter(item->item.getDominio().contains(dominio)).subscribe(p->log.info(p.toString()));
+        Disposable cantidad= Flux.fromIterable(correoList)
+                .filter(item->item.getDominio().contains(dominio)).count().subscribe(p->log.info(p.toString()));
+
+        System.out.println(cantidad);
 
     }
+
+
 
 
 }
